@@ -1,43 +1,23 @@
 #pragma once
-#include <string>
 #include <iostream>
+#include <string>
 
 class Pet
 {
 protected:
 
-	std::string name;
-	size_t age;
-
-	static constexpr short LEN = 20;
+    std::string name;
 
 public:
 
-	Pet() : Pet("Empty", 0) {}
+    Pet(const std::string& n) : name(n) {}
 
-	Pet(std::string n, size_t a) : 
-		
-		name((n.empty() || n.length() > LEN) ? "Empty" : n), 
-		age(a) {}
+    virtual void Sound() const = 0;
+    virtual void Show() const
+    {
+        std::cout << "Name: " << name << "\n";
+    }
+    virtual void Type() const = 0;
 
-	const std::string& getName() const { return name; }
-	const size_t& getAge() const { return age; }
-
-	void setName(std::string& n)
-	{
-		if (n.empty() || n.length() > LEN) return;
-		name = n;
-	}
-	void setAge(size_t a) { age = a; }
-
-	void show() const
-	{
-		std::cout << "Pet name: " << name << " Age: " << age << "\n";
-	}
-
-	bool operator==(const Pet& other) const
-	{
-		return age == other.age;
-	}
-
+    virtual ~Pet() = default;
 };

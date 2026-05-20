@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Cat.h" />
     <ClInclude Include="Dog.h" />
+    <ClInclude Include="Hamster.h" />
     <ClInclude Include="Parrot.h" />
     <ClInclude Include="Pet.h" />
   </ItemGroup>
